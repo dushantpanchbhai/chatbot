@@ -79,7 +79,9 @@
       </th>
     </div>
     <div class="container">
-      <form action="{% url 'answer' %}">
+      <form action="{% url 'answer' %}" method="post">
+        {% csrf_token %}
+        input text here:
           <textarea cols='60' rows='5' name="box"></textarea>
           <input type="submit" value="click here to get answer" />
       </form>
