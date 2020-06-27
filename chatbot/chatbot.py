@@ -5,6 +5,7 @@ from lxml import html
 from googlesearch import search
 from bs4 import BeautifulSoup
 import spacy
+import random
 output=sys.argv[1]
 
 def chatbot_query(question, index=0):
@@ -19,8 +20,8 @@ def chatbot_query(question, index=0):
     result = ''
 
 
-    #search_result_list = list(search(question, tld="co.in", num=10, stop=3, pause=1))
-    search_result_list = list(search(question, tld="co.in",start=2,num=10, stop=10, pause=2))
+    search_result_list = list(search(question, tld="co.in", num=10, stop=3, pause=1))
+    #search_result_list = list(search(question, tld="co.in",start=2,num=10, stop=10, pause=2))
 
     page = requests.get(search_result_list[index])
 
@@ -102,4 +103,19 @@ def chat(user_response):
         else:
             flag=False
             print ("Bot: Chat with you later !")
-chat(output)
+def chat2(user_response):
+    if(user_response!='bye'):
+            if(user_response=='thanks' or user_response=='thank you' ):
+                print ("Bot: You're welcome!, Chat with you later !")
+            else:
+                if(greeting(user_response)!=None):
+                    print ("Bot: "+greeting(user_response)+" how may i help you?")
+                else:
+                    try:
+                        print ("Bot: "+chatbot_query(user_response,0))
+                    except:
+                        print ("bot2: "+chatbot_query(user_response,1))
+    else:
+        flag=False
+        print ("Bot: Chat with you later !")
+chat2(output)
