@@ -1,0 +1,26 @@
+{% extends 'base.html'%}
+{%load static%}
+{%block content%}
+<br>
+<br>
+<div class="dushant">
+    <div class="container">
+      <th class="align-right">
+      <h3 class="dushant">
+        CHAT BOT IS READY TO <br>
+        <small class="text-muted">ANSWER YOUR QUERY</small>
+      </h3>
+      </th>
+    </div>
+</div>
+    <div class="container">
+      <form action="{% url 'answer'%}" method="post">
+        {% csrf_token %}
+        <br>
+        <img src='{%static "user.png"%}' height="30" width="30" />
+        <input class="dus" type="text" name="box" placeholder="input text here"/>
+      </form>
+    </div>
+    <br>
+    <br>
+{%endblock%}

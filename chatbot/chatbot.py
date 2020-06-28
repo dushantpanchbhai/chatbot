@@ -51,13 +51,13 @@ def chatbot_query(question, index=0):
     check = any(item in arr for item in list2)
 
     if check==True:
-        second=first_sentence[1].split('?')[0]
-        first_sentence = first_sentence[0].split('?')[0]
+        second=first_sentence[1]
+        first_sentence = first_sentence[0]
         chars_without_whitespace = second.translate(
             { ord(c): None for c in string.whitespace }
         )
     else:
-        first_sentence = first_sentence[1].split('?')[0]
+        first_sentence = first_sentence[1]
 
     chars_without_whitespace = first_sentence.translate(
         { ord(c): None for c in string.whitespace }
@@ -96,9 +96,9 @@ def chat(user_response):
                 if(greeting(user_response)!=None):
                     print ("Bot: "+greeting(user_response)+" how may i help you?")
                 else:
-                    try:
-                        print ("Bot: "+chatbot_query(user_response,0))
-                    except:
+                    #try:
+                    #    print ("Bot: "+chatbot_query(user_response,0))
+                    #except:
                         print ("bot2: "+chatbot_query(user_response,1))
         else:
             flag=False

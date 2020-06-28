@@ -1,0 +1,20 @@
+{%extends 'base.html'%}
+{%load static%}
+{%block content%}
+<br>
+<br>
+<br>
+<div class='container'>
+<img src='{%static "bot.png"%}' height="30" width="30" />
+<div class="dus">
+  {{ ans }}
+</div>
+</div>
+<div class="container">
+<form action="{% url 'answer'%}" method="post">
+  {% csrf_token %}
+  <img src='{%static "user.png"%}' height="30" width="30" />
+  <input class='dus' type="text" name="box" placeholder="input question here"/>
+</form>
+</div>
+{%endblock%}
