@@ -4,12 +4,29 @@
 <br>
 <br>
 <br>
+{% for i in ans %}
+<br>
 <div class='container'>
 <img src='{%static "bot.png"%}' height="30" width="30" />
 <div class="dus">
-  {{ ans }}
+  {{i}}
 </div>
 </div>
+<br>
+<div class='container'>
+<img src='{%static "bot.png"%}' height="30" width="30" />
+<div class="dus">
+  {%for j in question%}
+    {%if forloop.last%}
+      {{j}}
+    {%endif%}
+  {%endfor%}
+</div>
+</div>
+lp is {{ index }}
+{% endfor %}
+
+
 <div class="container">
 <form action="{% url 'answer'%}" method="post">
   {% csrf_token %}

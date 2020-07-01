@@ -1,0 +1,19 @@
+{%extends 'base.html'%}
+{% load static%}
+{%block content%}
+  <section class="jumbotron text-center">
+    <div class="container">
+
+    {{ name }}
+
+
+        <footer class="text-muted">
+          <div class="container text-center">
+          <p>© Chatbot {% now "Y" %}</p>
+          </div>
+        </footer>
+      </p>
+    </div>
+  </section>
+
+{%endblock%}
