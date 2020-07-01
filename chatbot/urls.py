@@ -14,5 +14,4 @@ urlpatterns = [
     path('contactus/', views.contactus, name='contactus'),
     path('info',views.info, name='info'),
     path('msg', views.chat, name='chat'),
-    path('chat/', include('chat.urls')),
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

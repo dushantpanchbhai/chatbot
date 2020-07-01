@@ -17,7 +17,7 @@ def home(request):
 def answer(request):
     global lp,n1,n2
     inp=request.POST.get("box")
-    n1.append(inp)
+    n2.append(inp)
     out=run([sys.executable,"//home//dushant//Desktop//django//chatbot//chatbot//chatbot.py",inp],shell=False,stdout=PIPE)
     r=out.stdout
     o=r.decode("utf-8")
@@ -41,3 +41,7 @@ def info(request) :
 def chat(request) :
     name = request.GET['name']
     return render(request, 'chat.html', {'name' : name})
+#<!--  {%if (index%2==0) %}
+#    {{i}}
+#  {%endif%}
+#-->

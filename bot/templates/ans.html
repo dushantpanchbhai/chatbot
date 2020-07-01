@@ -4,25 +4,23 @@
 <br>
 <br>
 <br>
-{% for i in ans %}
+{% for i in ans%}
 <br>
+{%if forloop.counter0|divisibleby:2 %}
+<div class='container'>
+<img src='{%static "user.png"%}' height="30" width="30" />
+<div class="dus">
+    {{i}}
+</div>
+</div>
+{%else%}
 <div class='container'>
 <img src='{%static "bot.png"%}' height="30" width="30" />
 <div class="dus">
-  {{i}}
+    {{i}}
 </div>
 </div>
-<br>
-<div class='container'>
-<img src='{%static "bot.png"%}' height="30" width="30" />
-<div class="dus">
-  {%for j in question%}
-    {%if forloop.last%}
-      {{j}}
-    {%endif%}
-  {%endfor%}
-</div>
-</div>
+{%endif%}
 lp is {{ index }}
 {% endfor %}
 
